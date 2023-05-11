@@ -1,8 +1,9 @@
 #' Bar plot with rounded corners
 #'
-#' @description Creates a bar plot with rounded corners using
-#'   'ggplot2'. It is an extension of the [ggplot2::geom_col()] function and
-#'   provides additional aesthetics for a more visually appealing output.
+#' @description Create a bar plot with rounded corners using
+#'   'ggplot2'. `geom_col_rounded()` and `geom_bar_rounded()` are extensions of
+#'   the [ggplot2::geom_col()] and [ggplot2::geom_bar()] functions and they
+#'   provide additional aesthetics for more visually appealing outputs.
 #'
 #' @param mapping Set of aesthetic mappings created by [ggplot2::aes()]. If specified and
 #'   `inherit.aes = TRUE` (the default), it is combined with the default mapping
@@ -46,7 +47,7 @@
 #'   the default plot specification, e.g. [ggplot2::borders()].
 #'
 #' @note The code in this function was adapted from a solution provided by
-#'   Stack Overflow user 'sthoch' in the following post: `https://stackoverflow.com/questions/62176038/r-ggplot2-bar-chart-with-round-corners-on-top-of-bar`
+#'   Stack Overflow user 'sthoch' in the following post: \url{https://stackoverflow.com/questions/62176038/r-ggplot2-bar-chart-with-round-corners-on-top-of-bar}
 #'
 #' @returns A ggplot object.
 #' @export
@@ -55,7 +56,10 @@
 #' library(ggplot2)
 #'
 #' ggplot(data.frame(x = letters[1:3], y = c(2.3, 1.9, 3.2)), aes(x, y)) +
-#' geom_col_rounded()
+#'   geom_col_rounded()
+#'
+#' ggplot(mpg, aes(class)) +
+#'   geom_bar_rounded()
 geom_col_rounded <-
   function(
     mapping = NULL,
