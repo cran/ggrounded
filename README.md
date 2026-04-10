@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggrounded
+# ggrounded <a href="https://botan.github.io/ggrounded/"><img src="man/figures/logo.png" align="right" height="139" /></a>
 
 <!-- badges: start -->
 
@@ -14,8 +14,7 @@ coverage](https://codecov.io/gh/botan/ggrounded/branch/main/graph/badge.svg)](ht
 status](https://www.r-pkg.org/badges/version/ggrounded)](https://CRAN.R-project.org/package=ggrounded)
 <!-- badges: end -->
 
-A mini-package for creating bar plots with rounded corners using
-ggplot2.
+ggrounded creates bar plots with rounded corners using ggplot2.
 
 ## Installation
 
@@ -40,6 +39,10 @@ on them for rounding the top corners. `geom_bar_rounded()` makes the
 height of the bar proportional to the number of cases in each group (or
 if the `weight` aesthetic is supplied, the sum of the weights).
 
+The `radius` argument is a normalized value between `0` and `1`. Use `0`
+for square corners and `1` for the maximum rounding that each bar can
+safely support based on its own width and height.
+
 ``` r
 library(ggrounded)
 library(ggplot2)
@@ -59,6 +62,40 @@ ggplot(data.frame(x = letters[1:3], y = c(2.3, 1.9, 3.2)), aes(x, y)) +
 ```
 
 <img src="man/figures/README-example2-1.png" width="100%" />
+
+Use larger `radius` values when you want a more pronounced rounded top:
+
+``` r
+ggplot(data.frame(x = letters[1:3], y = c(2.3, 1.9, 3.2)), aes(x, y)) +
+  geom_col_rounded(radius = 1)
+```
+
+<img src="man/figures/README-example3-1.png" width="100%" />
+
+Histograms can use rounded bins with `geom_histogram_rounded()`:
+
+``` r
+ggplot(faithful, aes(waiting)) +
+  geom_histogram_rounded(bins = 10)
+#> Warning: The `drop` argument of `stat_bin()` is deprecated as of ggplot2 2.1.0.
+#> ℹ Please use the `pad` argument instead.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
+```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+Negative values are supported too. Bars above zero keep rounded top
+corners, while bars below zero round away from the baseline:
+
+``` r
+ggplot(data.frame(x = letters[1:4], y = c(2.3, -1.9, 3.2, -2.6)), aes(x, y)) +
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  geom_col_rounded()
+```
+
+<img src="man/figures/README-example4-1.png" width="100%" />
 
 ## Code of Conduct
 
