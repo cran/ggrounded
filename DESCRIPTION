@@ -1,6 +1,6 @@
 Package: ggrounded
 Title: Rounded Bar Plots
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person("Botan", "Ağın", , "aginbotan@gmail.com", role = c("aut", "cre", "cph"))
 Author: Botan Ağın [aut, cre, cph]
@@ -19,6 +19,6 @@ BugReports: https://github.com/botan/ggrounded/issues
 Suggests: covr, testthat (>= 3.0.0), vdiffr
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2026-04-10 12:01:47 UTC; botan
+Packaged: 2026-04-30 20:53:46 UTC; botan
 Repository: CRAN
-Date/Publication: 2026-04-10 12:20:02 UTC
+Date/Publication: 2026-05-01 06:20:02 UTC
